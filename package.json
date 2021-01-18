@@ -1,0 +1,15 @@
+{
+    "main": "main.js",
+    "scripts": {
+        "test": "jest"
+    },
+    "dependencies": {
+        "commander": "^5.0.0"
+    },
+    "devDependencies": {
+        "eslint": "^6.6.0",
+        "eslint-plugin-jest": "^23.0.3",
+        "jest": "^24.9.0",
+        "jest-failure-reporter": "^1.0.1"
+    }
+}
