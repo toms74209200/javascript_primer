@@ -7,8 +7,11 @@ const marked = require("marked");
 
 program.option("--gfm", "GFMを有効にする");
 program.parse(process.argv);
-const options = program.opts();
-console.log(options.gfm);
+
+const cliOptions = {
+    gfm: false,
+    ...program.opts(),
+};
 
 const filePath = program.args[0];
 fs.readFile(filePath, {encoding: "utf8"}, (err, file) => {
@@ -19,7 +22,7 @@ fs.readFile(filePath, {encoding: "utf8"}, (err, file) => {
     }
     const html = marked(file, 
         {
-            gfm: false
+            gfm: cliOptions.gfm,
         });
     console.log(html);
 });
