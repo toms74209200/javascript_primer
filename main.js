@@ -2,7 +2,11 @@ const myModule = require("./my-module");
 console.log(myModule.foo);
 
 const program = require("commander");
+const fs = require("fs");
+
 program.parse(process.argv);
 
 const filePath = program.args[0];
-console.log(filePath);
+fs.readFile(filePath, (err, file) => {
+    console.log(file);
+});
