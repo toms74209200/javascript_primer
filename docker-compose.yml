@@ -12,8 +12,8 @@ services:
       - node_modules-data:/usr/src/app/node_modules
     command:
       sh -c "npm install &&
-      node main.js ./sample.md"
-      # npm test"
+      npm test"
+      # node main.js ./sample.md"
 
 volumes:
   node_modules-data:
