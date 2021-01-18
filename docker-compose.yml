@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  node:
+    image: node:12-alpine
+    build:
+      context: .
+      dockerfile: ../nodejs_deploy/Dockerfile
+    working_dir: /usr/src/app
+    volumes:
+      - .:/usr/src/app:cached
+      - node_modules-data:/usr/src/app/node_modules
+    command:
+      sh -c "npm install &&
+      node main.js"
+      # npm test"
+
+volumes:
+  node_modules-data:
+    driver: local
